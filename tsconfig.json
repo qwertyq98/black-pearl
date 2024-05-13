@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "target": "ESNext",
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "src/scripts",
+    "types": ["node"],
+    "outDir": "./built",
+    "paths": {
+      "@modules/*": ["./modules/*"],
+      "@images/*": ["../images/*"]
+    }
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
+}

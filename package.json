@@ -1,0 +1,77 @@
+{
+  "name": "parcel-template",
+  "version": "1.0.0",
+  "description": "parcel template",
+  "private": true,
+  "config": {
+    "parcelPort": "3005",
+    "jsonServerPort": "3004"
+  },
+  "scripts": {
+    "start": "concurrently  \"npm:parcel-dev\" \"npm:json-server\"",
+    "parcel-dev": "npm run clean && parcel src/*.html --no-cache --port 1234",
+    "parcel-dev-host": "npm run clean && parcel src/*.html --no-cache --port $npm_package_config_parcelPort --host 192.168.0.4",
+    "json-server": "json-server --watch db.json --port $npm_package_config_jsonServerPort",
+    "build:preprod": "npm run clean; parcel build src/index.html --public-url ./",
+    "build:prod": "npm run clean; parcel build src/index.html --public-url https://realty.ya.ru/vsk/calculator --no-source-maps",
+    "clean": "rm -rf dist/",
+    "info": "ntl -o",
+    "lint:check": "eslint --cache .",
+    "lint:fix": "eslint --cache . --fix",
+    "format:check": "prettier --check \"src/**/*\"",
+    "format:fix": "prettier --write \"src/**/*\"",
+    "prepare": "husky install"
+  },
+  "ntl": {
+    "descriptions": {
+      "start": "Start parcel and json server",
+      "parcel-dev": "Parcel dev server",
+      "json-server": "Local json server",
+      "build:preprod": "Build for preprod server",
+      "build:prod": "Build for deploy"
+    }
+  },
+  "lint-staged": {
+    "*.{html,scss,css,ts,js,json}": [
+      "prettier --write"
+    ],
+    "*.{ts,js}": [
+      "eslint --fix"
+    ]
+  },
+  "author": "kapustina an",
+  "license": "ISC",
+  "browserslist": "> 0.25%, not dead",
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.8.3",
+    "@types/animejs": "^3.1.7",
+    "@types/dropzone": "^5.7.4",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.15.3",
+    "@types/smoothscroll-polyfill": "^0.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "husky": "^8.0.3",
+    "json-server": "^0.17.2",
+    "lint-staged": "^13.2.0",
+    "ntl": "^5.1.0",
+    "os-browserify": "^0.3.0",
+    "parcel": "^2.8.3",
+    "parcel-resolver-tspaths": "^0.0.9",
+    "path-browserify": "^1.0.1",
+    "posthtml-include": "^1.7.4",
+    "prettier": "^2.8.4",
+    "process": "^0.11.10",
+    "sharp": "^0.31.3",
+    "typescript": ">=5.0.2"
+  },
+  "dependencies": {
+    "hamburgers": "^1.2.1",
+    "smoothscroll-polyfill": "^0.4.4"
+  }
+}
