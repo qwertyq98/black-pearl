@@ -6,6 +6,8 @@ interface PopupElement extends HTMLElement {
   }
 }
 
+let counter = 0
+
 const popups: NodeListOf<HTMLElement> = document.querySelectorAll('.popup')
 const linkPopups: NodeListOf<PopupElement> =
   document.body.querySelectorAll('[data-popup-id]')
@@ -40,6 +42,8 @@ function setClosePopupHandler(popup: HTMLElement) {
   }
 
   function closePopup() {
+    counter--
+    popup.style.backgroundColor = ''
     popup.classList.remove('popup-open')
     unlockScroll()
     document.removeEventListener('keydown', isEscapeHandler)
@@ -48,6 +52,11 @@ function setClosePopupHandler(popup: HTMLElement) {
 
 function openPopup(popupSelector: string) {
   const popup = document.getElementById(popupSelector) as HTMLElement
+  popup.style.backgroundColor = 'none'
+  counter++
+  if (counter === 1) {
+    popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'
+  }
 
   if (popup) {
     lockScroll()
