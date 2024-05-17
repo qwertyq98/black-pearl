@@ -1,5 +1,6 @@
 import '@modules/utils/observer'
 import '@modules/utils/scroll'
 import '@modules/mobile-menu'
-import '@modules/utils/popups'
 import '@modules/utils/swiper'
+import '@modules/test/index'
+import '@modules/utils/popups'

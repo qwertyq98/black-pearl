@@ -1,0 +1,123 @@
+.journey {
+  background-image: url('../images/journey.jpg');
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.journey__wrapper {
+  @include container;
+  display: flex;
+  gap: 263rem;
+  padding: 60rem 0 80rem;
+
+  &_mob {
+    display: none;
+  }
+
+  p {
+    width: 381rem;
+    font-size: 20rem;
+    font-weight: 400;
+    line-height: 23rem;
+    color: $bg-light;
+    padding-bottom: 38rem;
+    padding-top: 45rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20rem;
+    font-weight: 400;
+    line-height: 23rem;
+    color: $grey-light;
+    width: 400rem;
+    height: 77rem;
+    text-decoration: none;
+
+    background: rgba(153, 127, 255, 1);
+    text-align: center;
+    cursor: pointer;
+
+    transition: background 0.5s linear;
+
+    &:hover {
+      background: #858099;
+    }
+  }
+}
+
+.journey__title {
+  font-size: 130rem;
+  font-weight: 400;
+  line-height: 152rem;
+  color: $bg-light;
+  padding-bottom: 14rem;
+}
+
+@media screen and (max-width: $sm) {
+  .journey {
+    background-image: url('../images/journey-mob.jpg');
+    margin: 0 20rem 138rem;
+    position: relative;
+  }
+
+  .journey__wrapper {
+    display: none;
+
+    &_mob {
+      padding: 14rem 10rem 4rem 7rem;
+      height: 396rem;
+      display: flex;
+      align-items: end;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    p {
+      width: 273rem;
+      font-size: 14rem;
+      line-height: 16rem;
+      padding-bottom: 0;
+      margin-bottom: -5rem;
+    }
+
+    img {
+      position: absolute;
+      width: 39rem;
+      height: 38rem;
+      right: 10rem;
+      top: 14rem;
+    }
+  }
+
+  .journey__title {
+    font-size: 100rem;
+    line-height: 117rem;
+    padding: 0;
+  }
+
+  .journey__start-btn {
+    position: absolute;
+    left: 0;
+    bottom: -72rem;
+    font-size: 14rem;
+    line-height: 16rem;
+    height: 54rem;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 400;
+    color: $grey-light;
+    text-decoration: none;
+
+    background: rgba(153, 127, 255, 1);
+    text-align: center;
+    cursor: pointer;
+  }
+}

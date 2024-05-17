@@ -16,6 +16,7 @@ export default new Swiper('.swiper', {
     320: {
       slidesPerView: 1.2,
       spaceBetween: 7,
+      slidesPerGroup: 1,
     },
     1000: {
       spaceBetween: 20,

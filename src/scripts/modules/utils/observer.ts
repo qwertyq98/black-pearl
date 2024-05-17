@@ -16,7 +16,6 @@ function handleIntersect(
 ) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      // console.log('Intersecting')
       ym(94794851, 'reachGoal', 'scroll to the end')
       observer.unobserve(entry.target)
     }
