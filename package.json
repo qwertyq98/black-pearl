@@ -72,6 +72,7 @@
   },
   "dependencies": {
     "hamburgers": "^1.2.1",
-    "smoothscroll-polyfill": "^0.4.4"
+    "smoothscroll-polyfill": "^0.4.4",
+    "swiper": "^10.2.0"
   }
 }
