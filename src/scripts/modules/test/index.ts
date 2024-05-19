@@ -1,79 +1,112 @@
 import { createElement, occurrence } from '@modules/utils'
+import { escapeHandler } from '@modules/utils/popups'
+import { lockScroll, unlockScroll } from '@modules/utils/scroll-lock'
 
-import { DataQuestions, dataResults, QuestionTypes, ResultType } from './data'
+import { DataQuestions, QuestionTypes } from './data'
 import { quizTemplate, resultTemplate } from './template-test'
 
 const answers: number[] = []
-let res: number | undefined = 0
+let questionNumber = 0
 
 const createQuizCardsTemplates = (questions: QuestionTypes[]) =>
   questions.map((question) => createElement(quizTemplate(question)))
-const createResultTemplates = (results: ResultType[]) =>
-  results.map((result, index) => createElement(resultTemplate(index++)))
+const createResultTemplates = (result: number) =>
+  createElement(resultTemplate(result))
 const quizCardsTemplates = createQuizCardsTemplates(DataQuestions)
-const resultTestTemplate = createResultTemplates(dataResults)
-const closeButtons: any[] = []
+const startTestButton = document.querySelector('.test__start-btn')
 
-// нахожу конпки закрытия вопросов и добавляю в массив
+const closeButtons: HTMLButtonElement[] = quizCardsTemplates.map((question) =>
+  question.querySelector('.popup__close-button')
+)
+
 quizCardsTemplates.forEach((item) => item && document.body.append(item))
-quizCardsTemplates.forEach((question) => {
-  const element = question && question.querySelector('.popup__close-button')
-  element && closeButtons.push(element)
-})
-
-// нахожу конпки закрытия результатов и добавляю в массив
-resultTestTemplate.forEach((item) => item && document.body.append(item))
-resultTestTemplate.forEach((res) => {
-  const element = res && res.querySelector('.popup__close-button')
-  element && closeButtons.push(element)
-})
 
 // при нажатии кнопки закрытия очищаю массив ответов
 closeButtons.forEach((button: HTMLButtonElement) =>
   button.addEventListener('click', () => {
-    answers.length = 0
+    const currentPopup = button.closest('.popup')
+    closeTest(currentPopup)
   })
 )
 
-// нахожу конпки вариантов ответа
-const buttons = Array.from(
-  document.getElementsByClassName('quiz__answer-wrapper')
-)
+const buttonsContainers = document.querySelectorAll('.quiz__buttons')
 
-buttons.forEach((button) => {
-  button.addEventListener('click', () => {
-    if (button instanceof HTMLElement) {
-      if (button.dataset?.category) {
-        answers.push(+button.dataset?.category)
-      }
+startTestButton?.addEventListener('click', () => {
+  showQuestion(quizCardsTemplates[0])
+})
 
-      // отрисовка окна результатов
+function showQuestion(element) {
+  element.classList.add('popup-open')
+  document.addEventListener('keydown', escapeHandler)
+  element.addEventListener('click', overlayCloseHandler)
+  lockScroll()
+}
 
-      let lastId
-      if (button.dataset.popupId === 'quizPopup6') {
-        res = occurrence(answers)
-        if (res) {
-          lastId = resultTestTemplate[res]?.id
-        }
-        document.getElementById(lastId)!.id = 'quizPopup6'
-        document.getElementById('quizPopup6')
+function closeQuestion(element) {
+  element.classList.remove('popup-open')
+  document.removeEventListener('keydown', escapeHandler)
+  element.removeEventListener('click', overlayCloseHandler)
+  unlockScroll()
+}
 
-        // если сменился класс заменяем на старый id
-        const target = document.getElementById('quizPopup6')
-        const config = {
-          attributes: true,
-        }
-        const observer = new MutationObserver(function (mutations) {
-          mutations.forEach(function (mutation) {
-            if (mutation.attributeName === 'class') {
-              if (target) {
-                target.id = lastId
-                observer.disconnect()
-              }
-            }
-          })
-        })
-        target && observer.observe(target, config)
+function closeTest(popup) {
+  answers.length = 0
+  questionNumber = 0
+  unlockScroll()
+  closeQuestion(popup)
+  document.removeEventListener('keydown', escapeHandler)
+  popup.removeEventListener('click', overlayCloseHandler)
+}
+
+function showResults() {
+  lockScroll()
+  questionNumber = 0
+  const result = occurrence(answers)
+  document.body.append(createResultTemplates(result))
+  const resultPopup = document.getElementById('quizPopup')
+
+  document.addEventListener('keydown', escapeHandler)
+  resultPopup?.addEventListener('click', overlayCloseHandler)
+
+  showQuestion(resultPopup)
+
+  resultPopup
+    ?.querySelector('.popup__close-button')
+    ?.addEventListener('click', () => {
+      answers.length = 0
+      resultPopup?.remove()
+    })
+}
+
+function overlayCloseHandler(event: MouseEvent) {
+  const currentTarget = event.currentTarget as HTMLElement
+  if (event.target === currentTarget) {
+    closeQuestion(currentTarget)
+    currentTarget.querySelector('.quiz__result-wrapper') &&
+      currentTarget?.remove()
+  }
+}
+
+buttonsContainers.forEach((container) => {
+  container.addEventListener('click', (event) => {
+    const element = (event.target as HTMLElement).closest(
+      '.quiz__answer-wrapper'
+    ) as HTMLElement | null
+
+    if (element) {
+      const elementId: number = +element.dataset.answerId
+
+      answers.push(
+        elementId &&
+          DataQuestions[questionNumber].questionAnswers[elementId].score
+      )
+      closeQuestion(quizCardsTemplates[questionNumber])
+
+      if (DataQuestions.length - 1 > questionNumber) {
+        questionNumber++
+        showQuestion(quizCardsTemplates[questionNumber])
+      } else {
+        showResults()
       }
     }
   })

@@ -3,7 +3,6 @@ import { lockScroll, unlockScroll } from './scroll-lock'
 interface PopupElement extends HTMLElement {
   dataset: {
     popupId?: string
-    category?: string
   }
 }
 
@@ -21,22 +20,6 @@ export function setOpenPopupHandler(link: PopupElement) {
 
   function openPopupHandler(event: MouseEvent) {
     event.preventDefault()
-
-    if (link.dataset.category) {
-      const popupIdNumber = link.dataset.popupId?.slice(-1)
-      const prevPopup = document.getElementById(
-        `quizPopup${popupIdNumber && +popupIdNumber - 1}`
-      )
-
-      counter--
-      if (prevPopup) {
-        prevPopup.style.backgroundColor = ''
-        prevPopup.classList.remove('popup-open')
-      }
-
-      unlockScroll()
-      document.removeEventListener('keydown', isEscapeHandler)
-    }
 
     if (link.dataset.popupId) {
       openPopup(link.dataset.popupId)
@@ -63,7 +46,7 @@ export function setClosePopupHandler(popup: HTMLElement) {
     popup.style.backgroundColor = ''
     popup.classList.remove('popup-open')
     unlockScroll()
-    document.removeEventListener('keydown', isEscapeHandler)
+    document.removeEventListener('keydown', escapeHandler)
   }
 }
 
@@ -78,17 +61,23 @@ function openPopup(popupSelector: string) {
   if (popup) {
     lockScroll()
     popup.classList.add('popup-open')
-    document.addEventListener('keydown', isEscapeHandler)
+    document.addEventListener('keydown', escapeHandler)
   }
 }
 
-function isEscapeHandler(event: KeyboardEvent) {
+export function escapeHandler(event: KeyboardEvent) {
   if (event.key == 'Escape') {
     const popups: NodeListOf<HTMLElement> = document.querySelectorAll('.popup')
+    const resultPopup = document.querySelector('.quiz__result-wrapper')
+
     popups.forEach((popup) => {
       popup.classList.remove('popup-open')
     })
     unlockScroll()
-    document.removeEventListener('keydown', isEscapeHandler)
+    document.removeEventListener('keydown', escapeHandler)
+
+    if (resultPopup) {
+      resultPopup?.closest('.popup')?.remove()
+    }
   }
 }

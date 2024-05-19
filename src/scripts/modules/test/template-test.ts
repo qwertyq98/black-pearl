@@ -1,12 +1,10 @@
 import { AnswerTextType, dataResults, QuestionTypes } from './data'
 
-const renderAnswers = (answers: AnswerTextType[], number: number) =>
+const renderAnswers = (answers: AnswerTextType[]) =>
   answers
     .map(
       (answer, index: number) => `
-      <button class="quiz__answer-wrapper" data-category="${
-        answer.score
-      }" data-popup-id="quizPopup${number + 1}" >
+      <button class="quiz__answer-wrapper" data-answer-id="${index}">
         <div class="quiz__answer-number">0${index + 1}</div>
         <div class="quiz__answer-text">${answer.text}</div>
       </button>
@@ -24,15 +22,9 @@ const generateResult = (count: number, field: string) => {
   }
 }
 
-export const quizContainerTemplate = () => {
-  return `
-    <div class="quiz-coinaiter">hhjjjjbnjnkjhkhh</div>
-    `
-}
-
 export const quizTemplate = (question: QuestionTypes) => {
   return `
-  <div class="popup" id='quizPopup${question.number}'>
+  <div class="popup popup__question" id='${question.number}'>
     <div class="popup__container quiz__wrapper">
         <button class="popup__close-button popup__close-button_violet"></button>
         <div class="quiz__text-wrapper">
@@ -44,7 +36,7 @@ export const quizTemplate = (question: QuestionTypes) => {
             ? 'quiz__buttons quiz__buttons_row'
             : 'quiz__buttons'
         }">
-            ${renderAnswers(question.questionAnswers, question.number)}
+            ${renderAnswers(question.questionAnswers)}
         </div>
     </div>
   </div>
@@ -53,7 +45,7 @@ export const quizTemplate = (question: QuestionTypes) => {
 
 export const resultTemplate = (count: number) => {
   return `
-  <div class="popup popup__container" id='quizPopup${count}r'>
+  <div class="popup popup__container popup__question" id='quizPopup'>
     <div class="popup__container quiz__result-wrapper">
         <img class="quiz__result-img" src="${generateResult(count, 'image')}">
         <div class="quiz__result-content">

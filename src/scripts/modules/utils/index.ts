@@ -14,6 +14,6 @@ export function occurrence(arr) {
   const key = Object.keys(obj).find((key) => obj[key] === max)
 
   if (key) {
-    return parseInt(key) - 1
+    return parseInt(key)
   }
 }

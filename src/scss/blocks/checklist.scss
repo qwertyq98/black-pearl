@@ -98,23 +98,24 @@
   opacity: 1 !important;
 
   &:first-child {
-    background-image: url('../images/vector/arrow.svg') !important;
+    background-image: url('../images/vector/arrow-active.svg') !important;
+    rotate: 180deg;
   }
 
   &:last-child {
-    rotate: 180deg;
-    background-image: url('../images/vector/arrow.svg') !important;
+    rotate: 0deg;
+    background-image: url('../images/vector/arrow-active.svg') !important;
   }
 }
 
 .swiper-pagination-bullet-active:first-child {
-  background-image: url('../images/vector/arrow-active.svg') !important;
-  rotate: 180deg;
+  background-image: url('../images/vector/arrow.svg') !important;
+  rotate: 0deg;
 }
 
 .swiper-pagination-bullet-active:last-child {
-  rotate: 0deg;
-  background-image: url('../images/vector/arrow-active.svg') !important;
+  rotate: 180deg;
+  background-image: url('../images/vector/arrow.svg') !important;
 }
 
 @media screen and (max-width: $sm) {
