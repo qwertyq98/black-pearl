@@ -12,7 +12,7 @@
 
 .quiz__title {
   font-size: 20rem;
-  font-weight: 400;
+
   line-height: 23rem;
   color: $grey-light;
   padding-bottom: 18rem;
@@ -20,7 +20,7 @@
 
 .quiz__subtitle {
   font-size: 36rem;
-  font-weight: 400;
+
   line-height: 42rem;
   padding-bottom: 73rem;
   color: $grey-light;
@@ -74,9 +74,9 @@
 
 .quiz__answer-number {
   font-size: 36rem;
-  font-weight: 400;
+
   line-height: 42rem;
-  color: $black;
+
   height: 27rem;
   overflow: hidden;
   width: 40rem;
@@ -85,9 +85,8 @@
 
 .quiz__answer-text {
   font-size: 16rem;
-  font-weight: 400;
+
   line-height: 19rem;
-  color: $black;
 
   padding-top: 5rem;
 }
@@ -109,7 +108,7 @@
 .quiz__result-content_wrapper {
   h3 {
     font-size: 14rem;
-    font-weight: 400;
+
     line-height: 16rem;
     color: $grey-light;
 
@@ -119,7 +118,7 @@
 
 .quiz__result-text {
   font-size: 46rem;
-  font-weight: 400;
+
   line-height: 54rem;
   color: $grey-light;
 
@@ -128,7 +127,7 @@
 
 .quiz__result-description {
   font-size: 20rem;
-  font-weight: 400;
+
   line-height: 23rem;
   color: $grey-light;
 
@@ -153,12 +152,11 @@
 
   font-size: 20rem;
   line-height: 23rem;
-  font-weight: 400;
 }
 
 .quiz__result-info {
   font-size: 14rem;
-  font-weight: 400;
+
   line-height: 16rem;
   color: rgba(251, 247, 247, 0.4);
   padding-top: 47rem;
@@ -283,7 +281,7 @@
 
     font-size: 14rem;
     line-height: 16rem;
-    font-weight: 400;
+
     margin-bottom: 0;
   }
 

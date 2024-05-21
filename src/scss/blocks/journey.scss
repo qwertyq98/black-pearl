@@ -18,7 +18,7 @@
   p {
     width: 381rem;
     font-size: 20rem;
-    font-weight: 400;
+
     line-height: 23rem;
     color: $bg-light;
     padding-bottom: 38rem;
@@ -26,22 +26,7 @@
   }
 
   a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20rem;
-    font-weight: 400;
-    line-height: 23rem;
-    color: $grey-light;
-    width: 400rem;
-    height: 77rem;
-    text-decoration: none;
-
-    background: rgba(153, 127, 255, 1);
-    text-align: center;
-    cursor: pointer;
-
-    transition: background 0.5s linear;
+    @include button-link($violet, $white, $dark-violet);
 
     &:hover {
       background: #858099;
@@ -51,7 +36,7 @@
 
 .journey__title {
   font-size: 130rem;
-  font-weight: 400;
+
   line-height: 152rem;
   color: $bg-light;
   padding-bottom: 14rem;
@@ -60,7 +45,7 @@
 @media screen and (max-width: $sm) {
   .journey {
     background-image: url('../images/journey-mob.jpg');
-    margin: 0 20rem 138rem;
+    margin: 20rem 20rem 138rem;
     position: relative;
   }
 
@@ -103,21 +88,6 @@
     position: absolute;
     left: 0;
     bottom: -72rem;
-    font-size: 14rem;
-    line-height: 16rem;
-    height: 54rem;
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-weight: 400;
-    color: $grey-light;
-    text-decoration: none;
-
-    background: rgba(153, 127, 255, 1);
-    text-align: center;
-    cursor: pointer;
+    @include button-link_mob($violet, $white, $dark-violet);
   }
 }

@@ -41,40 +41,11 @@
 }
 
 .popup__checklist {
-  font-size: 20rem;
-  font-weight: 400;
-  line-height: 23rem;
-  color: rgba(28, 28, 32, 1);
-  border: none;
-  width: 100%;
-  height: 77rem;
-
-  background: white;
-  text-align: center;
-  cursor: pointer;
+  @include button($white, $black);
 }
 
 .popup__hotel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20rem;
-  font-weight: 400;
-  line-height: 23rem;
-  color: $grey-light;
-  width: 100%;
-  height: 77rem;
-  text-decoration: none;
-
-  background: rgba(153, 127, 255, 1);
-  text-align: center;
-  cursor: pointer;
-
-  transition: background 0.5s linear;
-
-  &:hover {
-    background: $dark-violet;
-  }
+  @include button-link($violet, $white, $grey);
 }
 
 .popup__ideas,
@@ -102,7 +73,7 @@
   .popup__place {
     h3 {
       font-size: 130rem;
-      font-weight: 400;
+
       line-height: 152rem;
       color: $bg-light;
       padding-bottom: 10rem;
@@ -112,7 +83,7 @@
   .popup__main-title {
     p {
       font-size: 46rem;
-      font-weight: 400;
+
       line-height: 54rem;
       color: $bg-light;
       padding-bottom: 64rem;
@@ -121,7 +92,7 @@
 
     .popup__number {
       font-size: 200rem;
-      font-weight: 400;
+
       line-height: 234rem;
       color: $bg-light;
       text-align: left;
@@ -133,13 +104,13 @@
 
   .popup__title {
     font-size: 130rem;
-    font-weight: 400;
+
     padding: 0 0 64rem;
   }
 
   .popup__subtitle {
     font-size: 26rem;
-    font-weight: 400;
+
     line-height: 30rem;
     color: $bg-light;
 
@@ -148,7 +119,7 @@
 
   .popup__description {
     font-size: 20rem;
-    font-weight: 400;
+
     line-height: 23rem;
     color: $bg-light;
 
@@ -210,7 +181,7 @@
     padding-left: 34rem;
     padding-right: 34rem;
     font-size: 20rem;
-    font-weight: 400;
+
     line-height: 23rem;
 
     &_violet {
@@ -270,25 +241,14 @@
   }
 
   .popup__button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-
+    @include button-link($violet, $white, $grey);
     width: 400rem;
-    height: 77rem;
-    background: $violet;
-    color: $grey-light;
-    text-decoration: none;
-
-    font-size: 20rem;
-    line-height: 23rem;
-    font-weight: 400;
+    margin: 0 auto;
   }
 
   .popup__info {
     font-size: 14rem;
-    font-weight: 400;
+
     line-height: 16rem;
     padding-top: 42rem;
     color: rgba(28, 28, 32, 0.4);
@@ -318,7 +278,7 @@
 
     p {
       font-size: 46rem;
-      font-weight: 400;
+
       line-height: 54rem;
       color: $bg-light;
     }
@@ -330,7 +290,7 @@
 
   .popup__number {
     font-size: 200rem;
-    font-weight: 400;
+
     line-height: 234rem;
     color: $bg-light;
     text-align: left;
@@ -365,7 +325,7 @@
 
   .popup__place {
     font-size: 20rem;
-    font-weight: 400;
+
     line-height: 23rem;
     color: $bg-light;
     border: none;
@@ -465,7 +425,7 @@
 
     .popup__title {
       font-size: 80rem;
-      color: $black;
+
       line-height: 94rem;
       padding: 0 0 24rem;
     }
@@ -499,7 +459,7 @@
       padding-left: 19rem;
       padding-right: 15rem;
       font-size: 14rem;
-      color: $black;
+
       line-height: 16rem;
 
       &_violet {
@@ -542,11 +502,8 @@
     }
 
     .popup__button {
+      @include button-link_mob($violet, $white, $grey);
       width: 335rem;
-      height: 54rem;
-
-      font-size: 14rem;
-      line-height: 16rem;
     }
 
     .popup__info {
@@ -636,9 +593,7 @@
   }
 
   .popup__hotel {
-    font-size: 14rem;
-    line-height: 16rem;
-    height: 54rem;
+    @include button-link_mob($violet, $white, $grey);
   }
 
   .popup__close-button {

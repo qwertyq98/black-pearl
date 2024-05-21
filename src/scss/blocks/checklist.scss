@@ -10,8 +10,6 @@
 
   font-size: 46rem;
   line-height: 54rem;
-  font-weight: 400;
-  color: $black;
 }
 
 .checklist__subtitle {
@@ -19,8 +17,6 @@
   padding-bottom: 46rem;
   font-size: 20rem;
   line-height: 23rem;
-  font-weight: 400;
-  color: $black;
 }
 
 .swiper-wrapper {
@@ -58,33 +54,17 @@
 .checklist__description {
   font-size: 26rem;
   line-height: 30rem;
-  font-weight: 400;
-  color: $black;
 }
 
 .checklist__btn {
-  width: 400rem;
-  height: 77rem;
-  background: $violet;
-  color: $grey-light;
-  border: none;
-
-  font-size: 20rem;
-  line-height: 23rem;
-  font-weight: 400;
-  cursor: pointer;
-  transition: background 0.5s linear;
-
-  &:hover {
-    background: $dark-violet;
-  }
+  @include button($violet, $grey-light);
 }
 
 .swiper-pagination-horizontal {
   bottom: 100rem !important;
 }
 
-.swiper-pagination {
+.swiper-pagination1 {
   z-index: 2 !important;
 }
 
@@ -124,7 +104,7 @@
   }
 
   .checklist {
-    padding: 0 20rem 70rem;
+    padding: 0 0 70rem 20rem;
   }
 
   .checklist__title {
@@ -162,10 +142,6 @@
   }
 
   .checklist__btn {
-    width: 275rem;
-    height: 54rem;
-
-    font-size: 14rem;
-    line-height: 16rem;
+    @include button_mob($violet, $grey-light);
   }
 }

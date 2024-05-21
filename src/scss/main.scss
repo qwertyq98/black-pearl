@@ -1,9 +1,6 @@
 // configs
 @import './configs/config';
 
-// universal components
-@import './components/universal';
-
 // blocks
 @import './blocks/header';
 
@@ -13,7 +10,7 @@
 @import './blocks/checklist';
 @import './blocks/test';
 @import './blocks/quiz';
-
+@import './blocks/products';
 @import './blocks/journey';
 
 @import './blocks/footer';

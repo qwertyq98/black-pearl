@@ -51,14 +51,14 @@
 .promo__title {
   padding-bottom: 14rem;
   font-size: 60rem;
-  font-weight: 400;
+
   line-height: 68rem;
   color: $grey-light;
 }
 
 .promo__text {
   font-size: 20rem;
-  font-weight: 400;
+
   line-height: 23rem;
   color: $grey-light;
   padding: 0 35rem;
@@ -85,7 +85,7 @@
     flex-direction: row;
     gap: 15rem;
     margin: -85rem auto 0;
-  
+
     width: 2775rem;
     height: 328rem;
   }
@@ -94,9 +94,9 @@
     transform: rotate(-5.35deg);
     width: 2775rem;
     height: 328rem;
-  
+
     margin-left: -20rem;
-  
+
     img {
       width: 264rem;
       object-fit: cover;
@@ -112,7 +112,7 @@
     font-size: 42rem;
     line-height: 47rem;
   }
-  
+
   .promo__text {
     font-size: 14rem;
     line-height: 16rem;

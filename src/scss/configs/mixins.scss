@@ -1,33 +1,80 @@
-// @mixin retina($density: 2) {
-//   @media only screen and (min-device-pixel-ratio: $density),
-//     only screen and (min-resolution: 192dpi),
-//     only screen and (min-resolution: 2dppx) {
-//     @content;
-//   }
-// }
-
-// @mixin list-reset {
-//   margin: 0;
-//   padding: 0;
-
-//   list-style: none;
-// }
-
-// @mixin button-reset {
-//   margin: 0;
-//   padding: 0;
-
-//   cursor: pointer;
-
-//   border: none;
-//   outline: none;
-//   background: none;
-
-//   &:focus {
-//     outline: none;
-//   }
-// }
 @mixin container {
   max-width: 1240rem;
   margin: 0 auto;
+}
+
+@mixin button($background, $color) {
+  height: 77rem;
+  width: 100%;
+  color: $color;
+  cursor: pointer;
+  background: $background;
+  border: none;
+  font-size: 20rem;
+  line-height: 23rem;
+  transition: background 0.5s linear;
+
+  &:hover {
+    background: $grey;
+  }
+}
+
+@mixin button-link($background, $color, $hover-color) {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+
+  height: 77rem;
+  width: 100%;
+  color: $color;
+  cursor: pointer;
+  background: $background;
+  border: none;
+  font-size: 20rem;
+  line-height: 23rem;
+  transition: background 0.5s linear;
+
+  &:hover {
+    background: $hover-color;
+  }
+}
+
+@mixin button_mob($background, $color) {
+  width: 275rem;
+  height: 54rem;
+  color: $color;
+  cursor: pointer;
+  background: $background;
+  border: none;
+  font-size: 14rem;
+  line-height: 16rem;
+  transition: background 0.5s linear;
+
+  &:hover {
+    background: $grey;
+  }
+}
+
+@mixin button-link_mob($background, $color, $hover-color) {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+
+  height: 54rem;
+  width: 100%;
+  color: $color;
+  cursor: pointer;
+  background: $background;
+  border: none;
+  font-size: 14rem;
+  line-height: 16rem;
+  transition: background 0.5s linear;
+
+  &:hover {
+    background: $hover-color;
+  }
 }

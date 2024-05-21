@@ -1,1 +1,30 @@
-<section class="products" id="products">products</section>
+<section class="products" id="products">
+  <div class="products__wrapper">
+    <h2 class="products__title">
+      Об&nbsp;уходовых программах &laquo;Черный Жемчуг&raquo;
+    </h2>
+    <p class="products__subtitle">
+      Средства помогают коже отдохнуть и восстановиться — независимо от
+      выбранного сценария зимних приключений.
+    </p>
+    <div class="products__tabs">
+      <button
+        class="products__button products__button_active"
+        data-button-tab="liftactivator"
+      >
+        LIFTACTIVATOR
+      </button>
+      <button class="products__button" data-button-tab="spf">SPF EXPERT</button>
+      <button class="products__button" data-button-tab="peeling">
+        PEELING EXPERT
+      </button>
+      <button class="products__button" data-button-tab="busters">
+        Сыворотки-бустеры
+      </button>
+    </div>
+    <include src="./products/liftactivator.html"></include>
+    <include src="./products/spf.html"></include>
+    <include src="./products/peeling.html"></include>
+    <include src="./products/busters.html"></include>
+  </div>
+</section>

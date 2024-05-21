@@ -75,3 +75,20 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20rem; /* roundness of the scroll thumb */
   background-color: $blue; /* color of the scroll thumb */
 }
+
+h1,
+h2,
+h4,
+p,
+button,
+div,
+ul,
+li,
+a {
+  font-weight: 400;
+  color: $black;
+}
+
+h3 {
+  font-weight: 400;
+}
