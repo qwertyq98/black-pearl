@@ -2,12 +2,26 @@
   &_beige {
     background: $beige;
   }
+
+  #liftactivator {
+    .swiper-pagination-horizontal {
+      bottom: 70rem !important;
+    }
+
+    .swiper_padding {
+      padding-bottom: 140rem !important;
+    }
+  }
 }
 
 .products__wrapper {
   @include container;
   position: relative;
   padding: 100rem 0;
+
+  .swiper_padding {
+    padding-bottom: 71rem !important;
+  }
 }
 
 .products__title {
@@ -92,7 +106,6 @@
 
 .products__product {
   visibility: hidden;
-  transition: opacity 0.5s linear;
   height: 0;
   overflow: hidden;
   opacity: 0;
@@ -191,6 +204,8 @@
   font-size: 16rem;
   line-height: 19rem;
   padding-bottom: 24rem;
+  width: 360rem;
+  height: 62rem;
 }
 
 .products__btn {
@@ -208,7 +223,7 @@
 
 .products__info {
   position: absolute;
-  bottom: 60rem;
+  bottom: 0rem;
   font-size: 14rem;
   line-height: 16rem;
   color: rgba(28, 28, 32, 0.2);
@@ -231,10 +246,18 @@
 @media screen and (max-width: $sm) {
   .products__wrapper {
     padding: 70rem 0 0 20rem;
+
+    .swiper_padding {
+      padding-bottom: 50rem !important;
+    }
   }
 
   .swiper_padding {
-    padding-bottom: 50rem !important;
+    padding-bottom: 27rem !important;
+  }
+
+  .products #liftactivator .swiper_padding {
+    padding-bottom: 66rem !important;
   }
 
   .products__title {
@@ -315,10 +338,12 @@
   }
 
   .products__product-description {
-    width: 344rem;
+    width: 330rem;
     margin: 0;
     text-align: left;
     padding-bottom: 40rem;
+    font-size: 14rem;
+    line-height: 16rem;
   }
 
   .products__product-options {
@@ -377,10 +402,14 @@
 
     img {
       height: 305rem;
+      &:hover {
+        transform: none;
+      }
     }
   }
 
   .products__description {
+    width: 305rem;
     height: 43rem;
     font-size: 12rem;
     line-height: 14rem;
@@ -389,14 +418,18 @@
   }
 
   .products__btn {
-    @include button-link_mob($violet, $white, $grey);
+    @include button-link_mob($violet, $white, $violet);
     width: 285rem;
+
+    &:hover {
+      background: $violet;
+    }
   }
 
   .products__info {
     position: relative;
     bottom: auto;
-    top: -42rem;
+    top: 16rem;
 
     font-size: 12rem;
     line-height: 14rem;
@@ -405,9 +438,11 @@
 
   .products__programs_two {
     gap: 7rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: 285rem 285rem;
     overflow: scroll;
     scrollbar-width: none;
+    margin-bottom: 50rem;
 
     &:last-child {
       margin-right: 20rem;

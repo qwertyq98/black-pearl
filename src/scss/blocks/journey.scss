@@ -27,6 +27,7 @@
 
   a {
     @include button-link($violet, $white, $dark-violet);
+    width: 400rem;
 
     &:hover {
       background: #858099;
@@ -40,6 +41,10 @@
   line-height: 152rem;
   color: $bg-light;
   padding-bottom: 14rem;
+}
+
+.journey__start-btn {
+  display: none;
 }
 
 @media screen and (max-width: $sm) {
@@ -87,7 +92,8 @@
   .journey__start-btn {
     position: absolute;
     left: 0;
+    display: block;
     bottom: -72rem;
-    @include button-link_mob($violet, $white, $dark-violet);
+    @include button-link_mob($violet, $white, $violet);
   }
 }

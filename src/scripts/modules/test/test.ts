@@ -1,5 +1,5 @@
+import { escapeHandler } from '@modules/popups/popups'
 import { createElement, occurrence } from '@modules/utils'
-import { escapeHandler } from '@modules/utils/popups'
 import { lockScroll, unlockScroll } from '@modules/utils/scroll-lock'
 
 import { DataQuestions, QuestionTypes } from './data'
@@ -15,15 +15,15 @@ const createResultTemplates = (result: number) =>
 const quizCardsTemplates = createQuizCardsTemplates(DataQuestions)
 const startTestButton = document.querySelector('.test__start-btn')
 
-const closeButtons: HTMLButtonElement[] = quizCardsTemplates.map((question) =>
-  question.querySelector('.popup__close-button')
+const closeButtons: (HTMLButtonElement | null)[] = quizCardsTemplates.map(
+  (question) => question?.querySelector('.popup__close-button')
 )
 
 quizCardsTemplates.forEach((item) => item && document.body.append(item))
 
 // при нажатии кнопки закрытия очищаю массив ответов
-closeButtons.forEach((button: HTMLButtonElement) =>
-  button.addEventListener('click', () => {
+closeButtons.forEach((button: HTMLButtonElement | null | undefined) =>
+  button?.addEventListener('click', () => {
     const currentPopup = button.closest('.popup')
     closeTest(currentPopup)
   })
@@ -37,14 +37,22 @@ startTestButton?.addEventListener('click', () => {
 
 function showQuestion(element) {
   element.classList.add('popup-open')
-  document.addEventListener('keydown', escapeHandler)
+  document.addEventListener('keydown', (e) => {
+    escapeHandler(e)
+    answers.length = 0
+    questionNumber = 0
+  })
   element.addEventListener('click', overlayCloseHandler)
   lockScroll()
 }
 
 function closeQuestion(element) {
   element.classList.remove('popup-open')
-  document.removeEventListener('keydown', escapeHandler)
+  document.removeEventListener('keydown', (e) => {
+    escapeHandler(e)
+    answers.length = 0
+    questionNumber = 0
+  })
   element.removeEventListener('click', overlayCloseHandler)
   unlockScroll()
 }
@@ -54,7 +62,11 @@ function closeTest(popup) {
   questionNumber = 0
   unlockScroll()
   closeQuestion(popup)
-  document.removeEventListener('keydown', escapeHandler)
+  document.removeEventListener('keydown', (e) => {
+    escapeHandler(e)
+    answers.length = 0
+    questionNumber = 0
+  })
   popup.removeEventListener('click', overlayCloseHandler)
 }
 
@@ -62,10 +74,14 @@ function showResults() {
   lockScroll()
   questionNumber = 0
   const result = occurrence(answers)
-  document.body.append(createResultTemplates(result))
+  document.body.append(createResultTemplates(result - 1))
   const resultPopup = document.getElementById('quizPopup')
 
-  document.addEventListener('keydown', escapeHandler)
+  document.addEventListener('keydown', (e) => {
+    escapeHandler(e)
+    answers.length = 0
+    questionNumber = 0
+  })
   resultPopup?.addEventListener('click', overlayCloseHandler)
 
   showQuestion(resultPopup)
@@ -75,6 +91,7 @@ function showResults() {
     ?.addEventListener('click', () => {
       answers.length = 0
       resultPopup?.remove()
+      unlockScroll()
     })
 }
 
@@ -94,12 +111,13 @@ buttonsContainers.forEach((container) => {
     ) as HTMLElement | null
 
     if (element) {
-      const elementId: number = +element.dataset.answerId
+      const elementId: string | undefined = element.dataset.answerId
 
-      answers.push(
-        elementId &&
-          DataQuestions[questionNumber].questionAnswers[elementId].score
-      )
+      if (elementId) {
+        answers.push(
+          DataQuestions[questionNumber].questionAnswers[+elementId].score
+        )
+      }
       closeQuestion(quizCardsTemplates[questionNumber])
 
       if (DataQuestions.length - 1 > questionNumber) {

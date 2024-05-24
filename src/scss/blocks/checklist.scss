@@ -19,6 +19,10 @@
   line-height: 23rem;
 }
 
+.swiper {
+  overflow-y: hidden !important;
+}
+
 .swiper-wrapper {
   display: flex;
 }
@@ -36,16 +40,16 @@
   img {
     object-fit: cover;
     width: 100%;
-    height: 228rem;
+    height: 238rem;
+    transition: transform 0.9s linear;
 
     &:hover {
       transform: scale(1.1);
-      transition: transform 0.9s linear;
     }
   }
 
   width: 400rem;
-  height: 228rem;
+  height: 238rem;
   overflow: hidden;
 
   cursor: pointer;
@@ -115,11 +119,19 @@
     line-height: 28rem;
   }
 
+  .swiper-slide {
+    width: 285rem !important;
+  }
+
   .checklist__subtitle {
     text-align: left;
     padding-bottom: 24rem;
     font-size: 14rem;
     line-height: 16rem;
+
+    br {
+      display: none;
+    }
   }
 
   .checklist__item {
@@ -128,11 +140,15 @@
   }
 
   .checklist__item-photo {
-    width: 275rem;
+    width: 285rem;
     height: 177rem;
 
     img {
       height: 177rem;
+
+      &:hover {
+        transform: none;
+      }
     }
   }
 
@@ -143,5 +159,10 @@
 
   .checklist__btn {
     @include button_mob($violet, $grey-light);
+    width: 285rem;
+    &:hover {
+      transform: none;
+      background: $violet;
+    }
   }
 }

@@ -5,7 +5,9 @@ const renderAnswers = (answers: AnswerTextType[]) =>
     .map(
       (answer, index: number) => `
       <button class="quiz__answer-wrapper" data-answer-id="${index}">
-        <div class="quiz__answer-number">0${index + 1}</div>
+        <div class="quiz__answer-number">
+          <p>0${index + 1}</p>
+        </div>
         <div class="quiz__answer-text">${answer.text}</div>
       </button>
       `

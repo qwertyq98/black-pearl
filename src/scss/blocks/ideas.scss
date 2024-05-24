@@ -34,7 +34,7 @@
   opacity: 0;
   z-index: 1;
 
-  transition: visibility, opacity 0.5s ease-out;
+  transition: opacity 0.9s ease-out;
 }
 
 .ideas__card {
@@ -73,8 +73,7 @@
     }
 
     .ideas__backgound {
-      transform: scale(1.1);
-      transition: transform 0.9s linear;
+      transform: scale(1.05);
     }
   }
 }
@@ -83,7 +82,7 @@
   margin-bottom: 10rem;
   overflow: hidden;
   max-height: 95rem;
-  transition: max-height 0.5s ease-out;
+  transition: max-height 0.8s ease-in;
 
   h3 {
     position: relative;
@@ -113,10 +112,6 @@
     margin-bottom: 24rem;
 
     h3 {
-      position: relative;
-      z-index: 2;
-
-      width: 100%;
       color: $dark-violet;
     }
   }
@@ -132,6 +127,7 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
+  transition: transform 0.9s linear;
 }
 
 @media screen and (max-width: $sm) {
@@ -156,7 +152,7 @@
 
   .ideas__number {
     margin-bottom: -9rem;
-    max-height: 100%;
+    pointer-events: none;
 
     h3 {
       width: 100%;
@@ -204,10 +200,15 @@
 
   .ideas__card-wrapper {
     gap: 7rem;
-    height: 230rem;
+    height: 250rem;
+
+    &:nth-child(2) {
+      height: 230rem;
+    }
   }
 
   .ideas__card_white {
+    height: 230rem;
     p {
       top: 20rem;
       left: 18rem;
@@ -220,6 +221,30 @@
   }
 
   .ideas__arrow {
-    display: none;
+    top: 13rem;
+    right: 8rem;
+  }
+
+  .element-animation {
+    height: 100rem;
+    max-height: 0;
+
+    &_text {
+      opacity: 0;
+    }
+  }
+
+  .element-animation_text {
+    opacity: 0;
+  }
+
+  .element-show {
+    max-height: 100rem;
+    transition: max-height 0.8s ease-out;
+  }
+
+  .element-show_text {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
   }
 }

@@ -58,6 +58,10 @@
     button {
       @include button_mob($violet, $grey-light);
       width: 335rem;
+
+      &:hover {
+        background: $violet;
+      }
     }
   }
 

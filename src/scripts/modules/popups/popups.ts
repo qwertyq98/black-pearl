@@ -1,4 +1,4 @@
-import { lockScroll, unlockScroll } from './scroll-lock'
+import { lockScroll, unlockScroll } from '../utils/scroll-lock'
 
 interface PopupElement extends HTMLElement {
   dataset: {
@@ -69,8 +69,10 @@ export function escapeHandler(event: KeyboardEvent) {
   if (event.key == 'Escape') {
     const popups: NodeListOf<HTMLElement> = document.querySelectorAll('.popup')
     const resultPopup = document.querySelector('.quiz__result-wrapper')
+    counter = 0
 
     popups.forEach((popup) => {
+      popup.style.backgroundColor = ''
       popup.classList.remove('popup-open')
     })
     unlockScroll()

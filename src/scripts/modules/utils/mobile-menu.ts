@@ -1,4 +1,4 @@
-import { lockScroll, unlockScroll } from './utils/scroll-lock'
+import { lockScroll, unlockScroll } from './scroll-lock'
 
 const $body: HTMLBodyElement = document.querySelector('body')!
 const $burgers: NodeListOf<HTMLElement> =

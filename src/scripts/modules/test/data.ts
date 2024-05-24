@@ -122,10 +122,10 @@ export const DataQuestions: QuestionTypes[] = [
 
 export const dataResults: ResultType[] = [
   {
-    image: new URL('/src/images/quiz/res1.jpg', import.meta.url),
-    subtitle: 'На горку!',
-    desc: '*LiftACTIVATOR [ЛифтАКТИВАТОР]',
-    text: 'Кажется, вы&nbsp;действительно любите зиму,&nbsp;&mdash; и&nbsp;это прекрасно! Нет времени откладывать удовольствие. Хватайте ледянку, лыжи или сноуборд и&nbsp;отправляйтесь на&nbsp;склоны или в&nbsp;лес, пока снег не&nbsp;растаял. А&nbsp;после прогулки не&nbsp;забудьте уделить внимание уходу за&nbsp;лицом &mdash;с&nbsp;этим поможет восстанавливающая <a href=`https://www.myblackpearl.ru/product/syvorotka-buster-kollagen target="_blank"`>сыворотка-бустер с&nbsp;коллагеном</a> и&nbsp;<a href=`https://www.myblackpearl.ru/product/face-and-neck-sculpting-cream-liftactivator target="_blank"`>крем-скульптор LiftACTIVATOR*</a> от&nbsp;&laquo;Черного Жемчуга&raquo;, активно питающий кожу и&nbsp;обеспечивающий лифтинг-эффект и&nbsp;контуринг.',
+    image: new URL('/src/images/quiz/res3.jpg', import.meta.url),
+    subtitle: 'Тематический квартирник',
+    desc: '',
+    text: 'Ничто не&nbsp;согревает вас зимой лучше хорошей компании! Скорее собирайте друзей на&nbsp;мексиканскую вечеринку с&nbsp;настолками&nbsp;&mdash; с&nbsp;гостей угощение, с&nbsp;вас тематические украшения и&nbsp;сомбреро. Закончить вечер можно на&nbsp;катке, главное&nbsp;&mdash; не&nbsp;снимать шляпы. <br><br>Темы вечеринок ограничены лишь вашей фантазией: хоть в&nbsp;стиле &laquo;Великий Гэтсби&raquo;, хоть с&nbsp;аниме-вайбом. А&nbsp;чтобы сохранить кожу сияющей в&nbsp;череде зимних развлечений, используйте <a href=`https://www.myblackpearl.ru/resort/serum target="_blank"`>сыворотки-бустеры</a> от&nbsp;&laquo;Черный Жемчуг&raquo; перед нанесением макияжа или дневного крема. Это поможет интенсивно увлажнить кожу, сократить мимические морщины&nbsp;&mdash; и&nbsp;не&nbsp;бояться появления новых заломов на&nbsp;лице от&nbsp;ярких эмоций.',
   },
   {
     image: new URL('/src/images/quiz/res2.jpg', import.meta.url),
@@ -134,9 +134,9 @@ export const dataResults: ResultType[] = [
     text: 'Зима&nbsp;&mdash; это в&nbsp;первую очередь уют и&nbsp;забота о&nbsp;себе. Тёплый свет лампы, гирлянды и&nbsp;хорошее кино создадут праздничную атмосферу. А&nbsp;позаботиться о&nbsp;коже поможет косметика из&nbsp;премиум-коллекций* от&nbsp;&laquo;Черного Жемчуга&raquo;: подготовьте кожу с&nbsp;обновляющей <a href=`https://www.myblackpearl.ru/resort/peelingexpert target="_blank"`>пилинг-маской с&nbsp;АНА- и&nbsp;BHA-кислотами</a>, нанесите увлажняющую <a href=`https://www.myblackpearl.ru/product/syvorotka-buster-gialuron target="_blank"`>сыворотку-бустер</a> для быстрого интенсивного увлажнения, и&nbsp;в&nbsp;завершении&nbsp;&mdash; дневной <a href=`https://www.myblackpearl.ru/product/dnevnoy-krem-filler-dlya-lica target="_blank"`>крем-филлер</a> с&nbsp;пептидным комплексом, который поможет выровнять рельеф кожи и&nbsp;сократить видимость морщин.',
   },
   {
-    image: new URL('/src/images/quiz/res3.jpg', import.meta.url),
-    subtitle: 'Тематический квартирник',
-    desc: '',
-    text: 'Ничто не&nbsp;согревает вас зимой лучше хорошей компании! Скорее собирайте друзей на&nbsp;мексиканскую вечеринку с&nbsp;настолками&nbsp;&mdash; с&nbsp;гостей угощение, с&nbsp;вас тематические украшения и&nbsp;сомбреро. Закончить вечер можно на&nbsp;катке, главное&nbsp;&mdash; не&nbsp;снимать шляпы. <br><br>Темы вечеринок ограничены лишь вашей фантазией: хоть в&nbsp;стиле &laquo;Великий Гэтсби&raquo;, хоть с&nbsp;аниме-вайбом. А&nbsp;чтобы сохранить кожу сияющей в&nbsp;череде зимних развлечений, используйте <a href=`https://www.myblackpearl.ru/resort/serum target="_blank"`>сыворотки-бустеры</a> от&nbsp;&laquo;Черный Жемчуг&raquo; перед нанесением макияжа или дневного крема. Это поможет интенсивно увлажнить кожу, сократить мимические морщины&nbsp;&mdash; и&nbsp;не&nbsp;бояться появления новых заломов на&nbsp;лице от&nbsp;ярких эмоций.',
+    image: new URL('/src/images/quiz/res1.jpg', import.meta.url),
+    subtitle: 'На горку!',
+    desc: '*LiftACTIVATOR [ЛифтАКТИВАТОР]',
+    text: 'Кажется, вы&nbsp;действительно любите зиму,&nbsp;&mdash; и&nbsp;это прекрасно! Нет времени откладывать удовольствие. Хватайте ледянку, лыжи или сноуборд и&nbsp;отправляйтесь на&nbsp;склоны или в&nbsp;лес, пока снег не&nbsp;растаял. А&nbsp;после прогулки не&nbsp;забудьте уделить внимание уходу за&nbsp;лицом &mdash;с&nbsp;этим поможет восстанавливающая <a href=`https://www.myblackpearl.ru/product/syvorotka-buster-kollagen target="_blank"`>сыворотка-бустер с&nbsp;коллагеном</a> и&nbsp;<a href=`https://www.myblackpearl.ru/product/face-and-neck-sculpting-cream-liftactivator target="_blank"`>крем-скульптор LiftACTIVATOR*</a> от&nbsp;&laquo;Черного Жемчуга&raquo;, активно питающий кожу и&nbsp;обеспечивающий лифтинг-эффект и&nbsp;контуринг.',
   },
 ]
