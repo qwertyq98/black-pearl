@@ -114,7 +114,7 @@
     line-height: 30rem;
     color: $bg-light;
 
-    padding-bottom: 18rem;
+    padding-bottom: 36rem;
   }
 
   .popup__description {
@@ -151,15 +151,32 @@
   }
 
   .popup__text-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 18rem;
+    padding: 50rem 0 50rem;
+  }
 
-    padding: 50rem 0;
+  .popup__text-wrapper {
     border-bottom: 1px solid rgba(28, 28, 32, 0.2);
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 18rem;
+      list-style: none;
+
+      padding: 0;
+    }
 
     &_violet {
       border-bottom: 1px solid rgba(251, 247, 247, 0.2);
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 18rem;
+        list-style: none;
+
+        padding: 0;
+      }
     }
   }
 
@@ -388,7 +405,7 @@
       font-size: 24rem;
       line-height: 28rem;
 
-      padding-bottom: 1rem;
+      padding-bottom: 8rem;
     }
 
     .popup__description {
@@ -442,7 +459,10 @@
 
     .popup__text-wrapper {
       padding: 32rem 0;
-      gap: 7rem;
+
+      ul {
+        gap: 7rem;
+      }
     }
 
     .popup__text::before {

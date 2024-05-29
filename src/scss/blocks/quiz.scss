@@ -2,8 +2,11 @@
   position: relative;
   background: $dark-violet;
   padding: 56rem 114rem 106rem;
-  width: 1040rem;
-  height: 580rem;
+  width: 100%;
+  max-width: 1040rem;
+  height: 100%;
+  max-height: 580rem;
+  overflow: auto;
 }
 
 .popup__question {
@@ -92,9 +95,14 @@
 }
 
 .quiz__result-wrapper {
-  width: 1040rem;
-  position: relative;
   background: $dark-violet;
+
+  width: 100%;
+  max-width: 1040rem;
+  height: 100%;
+  max-height: 899rem;
+  position: relative;
+  overflow: auto;
 
   img {
     height: 360rem;
@@ -170,6 +178,7 @@
     position: fixed;
     overflow: auto;
     inset: 0;
+    max-height: 100%;
   }
 
   .quiz__title {
@@ -249,6 +258,7 @@
     position: fixed;
     overflow: auto;
     inset: 0;
+    max-height: 100vh;
 
     img {
       height: 257rem;

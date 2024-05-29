@@ -29,6 +29,8 @@
   right: 20rem;
 
   width: 52rem;
+  background-image: url('../images/vector/arrow-ideas.svg');
+  background-size: cover;
   height: 51rem;
   visibility: hidden;
   opacity: 0;
@@ -42,6 +44,7 @@
   display: flex;
 
   height: 312rem;
+  padding: 32rem 28rem;
   background-size: cover;
   flex-direction: column;
   justify-content: end;
@@ -53,8 +56,6 @@
   p {
     position: relative;
     z-index: 1;
-    padding-bottom: 28rem;
-    padding-left: 32rem;
 
     font-size: 36rem;
     line-height: 42rem;
@@ -90,7 +91,7 @@
 
     width: 100%;
     color: $grey-light;
-    padding: 0 0 0 32rem;
+    padding: 0;
 
     font-size: 130rem;
     line-height: 130rem;
@@ -99,6 +100,7 @@
 
 .ideas__card_white {
   background: #ffffff;
+  padding-bottom: 0;
 
   p {
     position: absolute;
@@ -152,6 +154,7 @@
 
   .ideas__number {
     margin-bottom: -9rem;
+    margin-left: -15rem;
     pointer-events: none;
 
     h3 {
@@ -178,10 +181,11 @@
 
   .ideas__card {
     height: 250rem;
+    padding: 22rem 15rem;
 
     p {
-      padding-bottom: 22rem;
-      padding-left: 15rem;
+      padding-bottom: 0;
+      padding-left: 0;
 
       font-size: 24rem;
       line-height: 28rem;
@@ -216,7 +220,7 @@
     }
 
     .ideas__number {
-      margin-bottom: 17rem;
+      margin-bottom: -15rem;
     }
   }
 

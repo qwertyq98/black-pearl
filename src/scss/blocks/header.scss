@@ -69,6 +69,10 @@
   justify-content: space-between;
   gap: 38rem;
   padding: 0;
+
+  li {
+    padding: 10rem 0;
+  }
   a {
     text-decoration: none;
     color: $grey-light;
@@ -91,7 +95,10 @@
 @media screen and (max-width: $sm) {
   .header__hamburger {
     display: block;
+    position: relative;
+    z-index: 2;
   }
+
   .header {
     margin-bottom: 50rem;
 
@@ -122,9 +129,8 @@
       width: 123rem;
       height: 100%;
       margin-top: 0;
-      padding-right: 0;
       margin-right: 6rem;
-      padding-top: 0;
+      padding: 10rem 0;
       & img {
         width: 123rem;
         height: auto;
@@ -147,17 +153,23 @@
 
       display: flex;
       align-items: flex-start;
-      padding-top: 10rem;
+      padding: 10rem 0;
       & img {
         width: 136rem;
       }
     }
   }
 
+  .menu__list {
+    a:hover {
+      opacity: 1;
+    }
+  }
+
   .header__wrapper {
     position: absolute;
     z-index: 1;
-    top: 55rem;
+    top: 0;
     background: $dark-violet;
     width: 100%;
     height: 0;
@@ -166,10 +178,12 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    pointer-events: none;
 
     &.is-active {
-      height: calc(100vh - 55rem);
+      height: 100vh;
       opacity: 1;
+      pointer-events: all;
     }
 
     ul {
@@ -179,7 +193,7 @@
       flex-flow: column;
       justify-content: space-between;
       gap: 0;
-      padding-top: 35rem;
+      padding-top: 80rem;
       width: 100%;
 
       list-style: none;
@@ -222,6 +236,11 @@
       a {
         padding: 0 0 30rem;
       }
+    }
+
+    li:nth-child(5) {
+      border: none;
+      padding: 30rem 0 74rem;
     }
   }
 }

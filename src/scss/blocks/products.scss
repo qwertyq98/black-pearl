@@ -1,4 +1,5 @@
 .products {
+  transition: background 0.8s ease-in-out;
   &_beige {
     background: $beige;
   }
@@ -110,12 +111,14 @@
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.8s ease-in-out;
 
   &_active {
     visibility: visible;
     height: auto;
     opacity: 1;
     pointer-events: all;
+    overflow: visible;
   }
 }
 
@@ -148,7 +151,7 @@
     padding-top: 0;
   }
 
-  h3 {
+  div {
     font-size: 36rem;
     line-height: 42rem;
     max-width: 419rem;
@@ -195,7 +198,7 @@
 
     &:hover {
       transform: scale(1.1);
-      transition: transform 0.9s linear;
+      transition: transform 0.4s ease-in-out;
     }
   }
 }
@@ -212,8 +215,8 @@
   @include button-link($violet, $white, $grey);
 
   &_white {
-    background: $white;
-    color: $black;
+    background: $white !important;
+    color: $black !important;
 
     &:hover {
       background: $grey-light;
@@ -252,6 +255,14 @@
     }
   }
 
+  .products__info {
+    padding-left: 20rem;
+  }
+
+  .products__programs {
+    margin-left: -20rem !important;
+  }
+
   .swiper_padding {
     padding-bottom: 27rem !important;
   }
@@ -285,11 +296,17 @@
     gap: 6rem;
     padding-bottom: 70rem;
     padding-right: 20rem;
+    overflow: scroll;
+    margin-left: -20rem;
 
     justify-content: space-between;
     white-space: nowrap;
     scrollbar-width: none;
     overflow: scroll;
+
+    .products__button:first-child {
+      margin-left: 20rem;
+    }
   }
 
   .products__button {
@@ -337,6 +354,12 @@
     }
   }
 
+  .products__product-info {
+    &_title {
+      padding-right: 0;
+    }
+  }
+
   .products__product-description {
     width: 330rem;
     margin: 0;
@@ -360,7 +383,7 @@
       padding-top: 0;
     }
 
-    h3 {
+    div {
       font-size: 24rem;
       line-height: 28rem;
       max-width: 100%;
@@ -437,15 +460,26 @@
   }
 
   .products__programs_two {
-    gap: 7rem;
-    display: grid;
-    grid-template-columns: 285rem 285rem;
+    display: flex;
     overflow: scroll;
     scrollbar-width: none;
-    margin-bottom: 50rem;
+    margin-bottom: 0;
+    padding-bottom: 50rem;
+    gap: 7rem;
 
     &:last-child {
-      margin-right: 20rem;
+      margin-left: -20rem;
+
+      .programs__item {
+        width: 285rem;
+        &:first-child {
+          margin-left: 20rem;
+        }
+
+        &:last-child {
+          margin-right: 20rem;
+        }
+      }
     }
 
     .programs__item-photo {

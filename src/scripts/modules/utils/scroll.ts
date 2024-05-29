@@ -13,7 +13,7 @@ arrowDown.forEach((arrow) => {
     event.preventDefault()
     unlockScroll()
     section?.scrollIntoView({
-      block: window.innerWidth < 1000 ? 'start' : 'center',
+      block: 'start',
       behavior: 'smooth',
     })
   })

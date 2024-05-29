@@ -34,7 +34,7 @@
   border: none;
   font-size: 20rem;
   line-height: 23rem;
-  transition: background 0.5s linear;
+  transition: background 0.3s linear;
 
   &:hover {
     background: $hover-color;
@@ -50,7 +50,7 @@
   border: none;
   font-size: 14rem;
   line-height: 16rem;
-  transition: background 0.5s linear;
+  transition: background 0.3s linear;
 
   &:hover {
     background: $grey;
@@ -72,7 +72,7 @@
   border: none;
   font-size: 14rem;
   line-height: 16rem;
-  transition: background 0.5s linear;
+  transition: background 0.3s linear;
 
   &:hover {
     background: $hover-color;
